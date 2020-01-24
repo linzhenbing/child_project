@@ -16,6 +16,9 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# 默认后端地址配置在main.js中，当前为localhost:8080/user
+
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
