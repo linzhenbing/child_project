@@ -342,7 +342,6 @@
               alert("注册成功！")
               this.$router.push("/login")
             }
-            console.log(res)
           })
         }
       }

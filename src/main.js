@@ -52,7 +52,10 @@ new Vue({
 
 //全局导航守卫
 router.beforeEach((to, from, next) => {
+  //确保在未登录状态下只能访问注册和登录两个页面
   let isLogin = $cookies.get('children_isLogin')
-  if(to.path !== '/'&& to.path !== '/login'&&isLogin==='false'){ return next('/') }
+  if(to.path !== '/' && to.path !== '/login' && isLogin==='false' && to.path !== '/register'){ return next('/') }
+  //确保普通管理员无法访问用户管理页
+  else if($cookies.get('children_user').type === 1 && to.path === '/mdb/user'){ return next('/mdb') }
   next()
 })

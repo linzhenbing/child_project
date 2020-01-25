@@ -27,7 +27,6 @@ export default new Router({
       path: '/mdb',
       name: 'MDB',
       component: MDB,
-      redirect: '/mdb/user',
       children: [
         {
           path: 'user',

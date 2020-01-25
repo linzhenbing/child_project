@@ -26,8 +26,8 @@
       </a>
 
       <div class="list-group list-group-flush">
-        <router-link to="/mdb/user" class="list-group-item active waves-effect">
-          <i class="fas fa-user mr-3"></i>用户管理
+        <router-link to="/mdb/user" class="list-group-item active waves-effect" v-if="ifSuper">
+          <i class="fas fa-user mr-3" ></i>用户管理
         </router-link>
         <!--<a href="#" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Profile</a>
@@ -57,8 +57,13 @@
     name: "MDB",
     data(){
       return{
-        dates:['','']
+        ifSuper: ''
       }
+    },
+    created(){
+      //根据用户类型判断是否显示用户管理
+      let type = this.$store.getters.type
+      if(type===1){ this.ifSuper = false }else { this.ifSuper = true }
     },
     methods:{
       logout(){
