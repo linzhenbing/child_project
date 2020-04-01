@@ -48,7 +48,7 @@
               <tr v-for="user in userList" :key="user.id">
                 <th scope="row">{{ user.id }}</th>
                 <td>{{ user.username }}</td>
-                <td>{{ user.type === 1?"普通管理员":"超级管理员" }}</td>
+                <td>{{ user.type === 0?"普通管理员":"超级管理员" }}</td>
                 <td>{{ user.createtime }}</td>
                 <td>
                   <a id="operate_state" @click="setState(user.username,user.state)">{{ user.state === 0?"启用":"禁用" }}</a>

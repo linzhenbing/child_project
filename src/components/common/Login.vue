@@ -49,8 +49,8 @@
                     <span>密&nbsp;&nbsp;&nbsp;码：</span><input type="password" style="margin-left: 2px;" readonly onfocus="this.removeAttribute('readonly');" v-model="password">
                   </div>
                   <div class="selectType" id="type_list">
-                    <label for="plain"><input type="radio" name="type" id="plain" value="1" checked ref="plain">普通管理员</label>
-                    <label for="super"><input type="radio" name="type" id="super" value="2" ref="super">超级管理员</label>
+                    <label for="plain"><input type="radio" name="type" id="plain" value="0" checked ref="plain">普通管理员</label>
+                    <label for="super"><input type="radio" name="type" id="super" value="1" ref="super">超级管理员</label>
                   </div>
                   <button class="button_login" @click="login">登陆</button>
                   <router-link to="/register" class="button_register">注册</router-link>
@@ -330,6 +330,8 @@
           tips.classList.remove("show")
           tips.classList.add("hidden")
           this.$http.post('/user/login',{ username:this.username,password:this.password,type:this.type }).then(res=>{
+            console.log(this.type)
+            console.log(res.data.message)
             if(res.data.message === "用户名或密码错误"){
               tips.innerHTML = "用户名或密码错误！"
               tips.classList.remove("hidden")
